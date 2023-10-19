@@ -1,29 +1,26 @@
 class Solution {
+
+    public Stack insertCharacter(String str)
+    {
+        Stack<Character> st = new Stack<>();
+        for(Character ch : str.toCharArray())
+        {
+          if(!st.isEmpty() && ch == '#')
+          {
+              st.pop();
+          }
+          else if(ch != '#')
+          {
+              st.push(ch);
+          }
+        }
+        return st;
+    }
+
     public boolean backspaceCompare(String s, String t) {
-      Stack <Character> str1 = new Stack<>();
-      Stack <Character> str2 = new Stack<>();
-      for(Character c1 : s.toCharArray())
-      {
-          if(!str1.isEmpty() && c1 == '#')
-          {
-              str1.pop();
-          }
-          else if(c1 != '#')
-          {
-              str1.push(c1);
-          }
-      }
-      for(Character c2 : t.toCharArray())
-      {
-          if(!str2.isEmpty() && c2 == '#')
-          {
-              str2.pop();
-          }
-          else if(c2 != '#')
-          {
-              str2.push(c2);
-          }
-      }
+      Stack <Character> str1 = insertCharacter(s);
+      Stack <Character> str2 = insertCharacter(t);
+      
     //   System.out.print(str1.size()+" "+str2.size());
       if(!(str1.size() == str2.size()))
       {

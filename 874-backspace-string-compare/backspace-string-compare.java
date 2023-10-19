@@ -29,7 +29,7 @@ class Solution {
       
       else
       {
-          int size = Math.max(str1.size(),str2.size());
+          int size = str1.size();
           for(int i = 0 ; i < size ; i++)
           {
               System.out.print(str1.peek()+" "+str2.peek());
